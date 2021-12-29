@@ -5,3 +5,6 @@ __pycache__/
 
 /.envrc
 /.idea/
+
+/.coverage
+/coverage.xml
