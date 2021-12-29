@@ -56,7 +56,7 @@ jobs:
     - name: Install pip dependencies
       run: poetry install
     - name: Test
-      run: poetry run pytest --cov-report xml --cov=aiotomato test/
+      run: poetry run pytest --cov-report xml --cov=aiotomato tests/
     - name: Upload coverage
       if: ${{ matrix.python-version == '3.10' && env.IS_COVERAGE_ALLOWED == 'true' }}
       uses: codecov/codecov-action@v2
