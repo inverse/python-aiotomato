@@ -64,7 +64,7 @@ nvram = {
         'lan_netmask': '255.255.255.0',
         'lan1_netmask': '',
         'lan2_netmask': '',
-        'lan3_netmask': '',Device
+        'lan3_netmask': '',
         'lan_ifnames': 'vlan1 eth1 eth2',
         'lan1_ifnames': '',
         'lan2_ifnames': '',
