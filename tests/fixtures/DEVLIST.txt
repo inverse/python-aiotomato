@@ -1,8 +1,8 @@
 
-arplist = [ ['192.168.1.100','00:1E:06:48:AA:AB','br0','Some-Device'],['192.168.1.30','50:3D:C6:5D:AA:AC','br0','']];
+arplist = [ ['192.168.1.100','00:1E:06:48:AA:AA','br0','some-device'],['192.168.1.101','00:1E:06:48:AA:AB','br0','wifi-device-online'], ['192.168.1.30','50:3D:C6:5D:AA:AC','br0','']];
 
 wlnoise = [ -80,-92 ];
-wldev = [ ['eth1','84:F3:EB:68:4C:7A',-77,26000,1000,633,0],['eth2','2A:89:5F:9D:0D:44',-62,1000,1000,2206,0]];
+wldev = [ ['eth1','00:1E:06:48:AA:AB',-77,26000,1000,633,0]];
 
 nvram = {
         'wan_ifname': 'vlan2',
@@ -64,7 +64,7 @@ nvram = {
         'lan_netmask': '255.255.255.0',
         'lan1_netmask': '',
         'lan2_netmask': '',
-        'lan3_netmask': '',
+        'lan3_netmask': '',Device
         'lan_ifnames': 'vlan1 eth1 eth2',
         'lan1_ifnames': '',
         'lan2_ifnames': '',
@@ -73,7 +73,7 @@ nvram = {
         'web_css': 'at-dark',
         'cstats_enable': '0',
         'cstats_labels': '0',
-        'dhcpd_static': '00:1E:06:48:AA:AB<192.168.1.100<some-device-some<0>',
+        'dhcpd_static': '00:1E:06:48:AA:AA<192.168.1.100<some-device<0>',
         'wl_ifname': 'eth1',
         'wl0_ifname': 'eth1',
         'wl1_ifname': 'eth2',
@@ -93,5 +93,5 @@ nvram = {
         'http_id': 'my_http_id',
         'web_mx': 'status,bwm',
         'web_pb': ''};
-dhcpd_lease = [ ['','192.168.1.30','50:3D:C6:5D:AA:AC','0 days, 23:35:53'],['Some-Device','192.168.1.14','00:1E:06:48:07:9F','0 days, 19:42:25']];
+dhcpd_lease = [ ['','192.168.1.30','00:1E:06:48:AA:AC','0 days, 23:35:53'],['wifi-device-online','192.168.1.101','00:1E:06:48:AA:AB','0 days, 19:42:25'], ['some-device','192.168.1.100','00:1E:06:48:AA:AA','0 days, 19:42:25']];
 gc_time = 60;

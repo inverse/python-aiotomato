@@ -20,6 +20,7 @@ class Device:
     name: str
     ip: str
     mac: str
+    is_online: bool
 
 
 class Client:
@@ -42,16 +43,18 @@ class Client:
         self.verify_ssl = verify_ssl
         self.parse_api_pattern = re.compile(r"(?P<param>\w*) = (?P<value>.*);")
 
-    def get_dev_list(self) -> List[Device]:
+    def fetch_devices(self) -> List[Device]:
         response = self._make_request(Commands.DEVLIST)
-
         data = {}
         for param, value in self.parse_api_pattern.findall(response):
             data[param] = json.loads(value.replace("'", '"'))
 
         result = []
         for item in data.get("dhcpd_lease", []):
-            result.append(Device(item[0], item[1], item[2]))
+            matched_online = [
+                device for device in data.get("wldev", []) if device[1] == item[2]
+            ]
+            result.append(Device(item[0], item[1], item[2], len(matched_online) != 0))
 
         return result
 
