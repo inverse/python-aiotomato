@@ -9,4 +9,4 @@ client = Client(
     os.getenv("ROUTER_HTTP_ID", ""),
 )
 
-print(client.get_dev_list())
+print(client.fetch_devices())
