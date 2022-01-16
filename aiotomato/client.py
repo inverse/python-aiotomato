@@ -12,7 +12,6 @@ _LOGGER = logging.getLogger(__name__)
 
 class Commands:
     DEVLIST = "devlist"
-    NETDEV = "netdev"
 
 
 @dataclass
@@ -41,12 +40,12 @@ class Client:
         self.port = port
         self.use_ssl = use_ssl
         self.verify_ssl = verify_ssl
-        self.parse_api_pattern = re.compile(r"(?P<param>\w*) = (?P<value>.*);")
+        self.api_result_pattern = re.compile(r"(?P<param>\w*) = (?P<value>.*);")
 
     def fetch_devices(self) -> List[Device]:
         response = self._make_request(Commands.DEVLIST)
         data = {}
-        for param, value in self.parse_api_pattern.findall(response):
+        for param, value in self.api_result_pattern.findall(response):
             data[param] = json.loads(value.replace("'", '"'))
 
         result = []

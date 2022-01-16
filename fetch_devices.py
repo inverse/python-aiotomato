@@ -9,4 +9,8 @@ client = Client(
     os.getenv("ROUTER_HTTP_ID", ""),
 )
 
-print(client.fetch_devices())
+for device in client.fetch_devices():
+    print(f"name: {device.name}")
+    print(f"ip: {device.ip}")
+    print(f"mac: {device.mac}")
+    print(f"is_online: {device.is_online}")
